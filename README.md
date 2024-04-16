@@ -22,6 +22,10 @@ Step 5: Create .env with .env template, get product_images.json when upload imag
 
     node --env-file=.env upload_images.js
 
+Step 6: add data to firestore database
+
+    node --env-file=.env add_firestore_db.js
+
 
 
 
