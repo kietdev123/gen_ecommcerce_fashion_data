@@ -1,18 +1,27 @@
-# Host image resources
+# Generate Ecommerce fashion data
 
 ## Description
 
-use to host image for personal project:
-
-- Ecommerce:
-  + [Fashion product from Kaggle](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset/code) 
+use to create type, products in Ecommerce fashion for personal project
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Step 1: Download data from [Fashion product from Kaggle](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset/code)
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Step 2: Create data foulder with images - foulder and styles.csv
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+Step 3: Create type.json from styles.csv, run
+
+    py get_type_json.py
+
+Step 4: Create products.json from styles.csv, run
+
+    py get_products_json.py
+
+Step 5: Create .env with .env template, get product_images.json when upload images to cloudinary, run
+
+    node --env-file=.env upload_images.js
+
+
+
+
