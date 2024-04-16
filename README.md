@@ -1,4 +1,4 @@
-# Generate Ecommerce fashion data
+# Generate Ecommerce Fashion Data
 
 ## Description
 
@@ -21,6 +21,10 @@ Step 4: Create products.json from styles.csv, run
 Step 5: Create .env with .env template, get product_images.json when upload images to cloudinary, run
 
     node --env-file=.env upload_images.js
+
+Step 6: add data to firestore database
+
+    node --env-file=.env add_firestore_db.js
 
 
 
