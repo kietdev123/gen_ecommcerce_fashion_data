@@ -1,4 +1,4 @@
-# Generate Ecommerce fashion data
+# Generate Ecommerce Fashion Data
 
 ## Description
 
