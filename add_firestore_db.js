@@ -69,6 +69,8 @@ async function seedDataProduct(){
     try {
         let products = await fs.readFileSync("./products.json", 'utf8');
         products = JSON.parse(products)['data'];
+        
+        let query = [];
 
         for (let i in products){
            
@@ -85,8 +87,10 @@ async function seedDataProduct(){
             let brandIndex =  getRandomInt(0, 8);
             value.brand = brands[brandIndex];
       
-            await addDoc(collection(db, 'products'), value );
+            // await addDoc(collection(db, 'products'), value );
+            query.push(addDoc(collection(db, 'products'), value ))
         }
+        await Promise.all(query);
         console.log('Done added product');
     } catch (e){
         console.log(e);
@@ -94,11 +98,33 @@ async function seedDataProduct(){
 }
 
 
+async function checkProduct(){
+    try {
+        const products = await getDocs(collection(db, 'products'));
 
+        let productDatas = [];
+
+        products.forEach((doc) => {
+            
+            if (doc.data().imgUrls.length < 3){
+                console.log(doc.data().id)
+            }
+          });
+    } catch (e){
+        console.log(e);
+    }  
+}
 async function main(){
     // await seedDataBrand();
     // await seedDataType();
+    
+    console.time('seedDataProduct')
     await seedDataProduct();
+    console.timeEnd('seedDataProduct')
+
+    // console.time('checkProduct')
+    // checkProduct()
+    // console.timeEnd('checkProduct')
 }
 
 main();
