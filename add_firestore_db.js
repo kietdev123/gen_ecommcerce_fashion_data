@@ -70,14 +70,10 @@ async function seedDataProduct(){
         let products = await fs.readFileSync("./products.json", 'utf8');
         products = JSON.parse(products)['data'];
 
-        let product_images = await fs.readFileSync("./product_images.json", 'utf8');
-        product_images = JSON.parse(product_images)['data'];
-
         for (let i in products){
            
             let value = products[i];
-         
-            value.imageUrl = product_images[i].url;
+            
             value.price = getRandomInt(100000, 1000000);
             value.saleNumber = getRandomInt(0, 100);
             value.star = getRandomInt(0, 5);
