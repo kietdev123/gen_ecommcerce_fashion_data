@@ -116,11 +116,14 @@ async function checkProduct(){
 }
 async function main(){
     // await seedDataBrand();
-    // await seedDataType();
-    
-    console.time('seedDataProduct')
-    await seedDataProduct();
-    console.timeEnd('seedDataProduct')
+
+    console.time('seedDataType')
+    await seedDataType();
+    console.timeEnd('seedDataType')
+
+    // console.time('seedDataProduct')
+    // await seedDataProduct();
+    // console.timeEnd('seedDataProduct')
 
     // console.time('checkProduct')
     // checkProduct()
